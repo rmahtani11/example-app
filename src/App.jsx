@@ -3,9 +3,14 @@ import earthday from './assets/earthday.jpg'
 import './App.css'
 
 function App() {
-    function handleSubmit(e) {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");  
+  
+  function handleSubmit(e) {
     e.preventDefault();
-    alert("Form submitted!");
+
+    alert(`Thank you for submitting! Your name is ${name} and email is ${email}`);
   }
   return (
         <><header
@@ -29,12 +34,12 @@ function App() {
       <form onSubmit={handleSubmit}>
           <label>
             Name:
-            <input type="text" name="name" required />
+            <input type="text" name="name" required onChange={(e) => setName(e.target.value)}/>
           </label>
           <br />
           <label>
             Email:
-            <input type="email" name="email" required />
+            <input type="email" name="email" required onChange={(e) => setEmail(e.target.value)}/>
           </label>
           <br />
           <label>
